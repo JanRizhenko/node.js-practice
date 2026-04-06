@@ -14,10 +14,9 @@ describe('fetchUserProfiles', () => {
         const result = await fetchUserProfiles(userIds);
         expect(result).toHaveLength(3);
     })
-    it('should not be empty', async () => {
-        const result = await fetchUserProfiles([]);
-        expect(result).toEqual([]);
-    })
+    it('should throw if userIds is empty', async () => {
+        await expect(fetchUserProfiles([])).rejects.toThrow('userIds cannot be empty');
+    });
     it('should return correct profile format', async () => {
         const result = await fetchUserProfiles(['101']);
         expect(result[0]).toEqual({

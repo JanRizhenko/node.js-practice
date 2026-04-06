@@ -3,7 +3,7 @@ import { UserProfile } from '../types/index.js';
 
 export const fetchUserProfiles = async (userIds: string[]): Promise<UserProfile[]> => {
     if (userIds.length === 0) {
-        return [];
+        throw new Error('userIds cannot be empty');
     }
 
     const profilePromises = userIds.map(async (id: string): Promise<UserProfile> => {
