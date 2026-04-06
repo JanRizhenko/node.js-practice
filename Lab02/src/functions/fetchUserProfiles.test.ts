@@ -9,7 +9,6 @@ describe('fetchUserProfiles', () => {
     beforeEach(() => {
         jest.clearAllMocks();
     });
-
     it('should return array of users', async () => {
         const userIds = ['101', '102', '103'];
         const result = await fetchUserProfiles(userIds);
